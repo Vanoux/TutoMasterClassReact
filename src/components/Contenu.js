@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
-import { Container } from 'semantic-ui-react';
-import { Button, Header, Image, Modal, Form } from 'semantic-ui-react';
+import { Container, Button, Header, Image, Modal, Form, Menu } from 'semantic-ui-react';
 
 
 class Contenu extends Component {
 
-    //state = {url:"", descrip:""}
+    
+    state = {url:'', descrip:''}
+
+    handleChangeUrl = (e) => this.setState ({url: e.target.value})
+    handleChangeDesc = (e) => this.setState ({descrip: e.target.value})
+
+    hanldleSubmit = () => {
+        console.log(this.state)
+        console.log("Form has been submitted")
+    }
 
 
        // this.setState({ submittedUrl: url, submittedDescrip: descrip})
@@ -41,25 +49,24 @@ class Contenu extends Component {
     </div>
         ))}
 
-
-
-
+<div>
     <Modal trigger={<Button>Ajouter une nouvelle image</Button>}>
     <Modal.Header>Ajouter une nouvelle image</Modal.Header>
     <Modal.Content form>
-    <Form>
+    <Form onSubmit={this.hanldleSubmit}>
         <Form.Field>
             <label>Url de l'image</label>
-            <input placeholder="Image url" />
+            <input placeholder="Url" name="url" onChange={this.handleChangeUrl}/>
         </Form.Field>
         <Form.Field>
             <label>Description de l'image</label>
-            <input placeholder="Description" />
+            <input placeholder="Description" name="descrip" onChange={this.handleChangeDesc}/>
         </Form.Field>
         <Button type="submit">Submit</Button>
     </Form>
     </Modal.Content>
     </Modal>
+    </div>
 
 
         </Container>

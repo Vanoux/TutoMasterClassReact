@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Contenu from './components/Contenu';
+import NavMenu from './components/NavMenu';
 
 class App extends Component {
   render() {
